@@ -15,7 +15,7 @@
 
           <div class="mt-10 flex gap-4">
             <RouterLink
-              to="/product"
+              to="/category"
               class="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold"
             >
               查看产品

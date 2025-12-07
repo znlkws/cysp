@@ -7,10 +7,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "main" */ '../views/home/Index.vue')
   },
   {
-    path: '/product',
-    name: 'product',
-    component: () => import(/* webpackChunkName: "main" */ '../views/product/Index.vue')
+    path: '/category',
+    name: 'category',
+    component: () => import(/* webpackChunkName: "main" */ '../views/category/Index.vue')
   },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import(/* webpackChunkName: "main" */ '../views/contact/Index.vue')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import(/* webpackChunkName: "main" */ '../views/about/Index.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
+  }
 ]
 
 const router = createRouter({

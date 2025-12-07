@@ -18,14 +18,6 @@ export const products = [
       'FH5',
       'FH16',
     ],
-
-    features: [
-      '高亮远射',
-      '精准切线',
-      '稳定散热结构',
-      '无损安装',
-    ],
-
     specs: {
       light: 'LED 双透镜',
       power: '60W',
@@ -47,21 +39,6 @@ export const products = [
       '/products/fh/02.jpg',
       '/products/fh/03.jpg',
     ],
-
-    models: [
-      'FH3',
-      'FH4',
-      'FH5',
-      'FH16',
-    ],
-
-    features: [
-      '高亮远射',
-      '精准切线',
-      '稳定散热结构',
-      '无损安装',
-    ],
-
     specs: {
       light: 'LED 双透镜',
       power: '60W',
@@ -118,17 +95,6 @@ export const products = [
       '/products/tgx/01.jpg',
       '/products/tgx/02.jpg',
     ],
-
-    models: ['TGX'],
-
-    features: [
-      '高速夜视增强',
-      '工业级密封防水',
-    ],
-    specs: {
-      light: 'LED',
-      voltage: '24V',
-    },
   },
   {
     id: 'tgx-led-002',
@@ -141,37 +107,47 @@ export const products = [
       '/products/tgx/02.jpg',
     ],
 
-    models: ['TGX'],
-
-    features: [
-      '高速夜视增强',
-      '工业级密封防水',
-    ],
-    specs: {
-      light: 'LED',
-      voltage: '24V',
-    },
   },
   {
     id: 'tgx-led-003',
     name: 'TGX 工程级 LED 大灯',
-    brand: 'JSCHIYU',
-    category: 'man',
+    category: 'isuzu',
     cover: 'tgx.png',
-    images: [
-      '/products/tgx/01.jpg',
-      '/products/tgx/02.jpg',
-    ],
-
-    models: ['TGX'],
-
-    features: [
-      '高速夜视增强',
-      '工业级密封防水',
-    ],
-    specs: {
-      light: 'LED',
-      voltage: '24V',
-    },
+  },
+  {
+    id: 'taa',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
+  },
+  {
+    id: 'tgxs-led-003',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
+  },
+  {
+    id: 'tgx-fled-003',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
+  },
+  {
+    id: 'tgx-legd-003',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
+  },
+  {
+    id: 'tgx-lehd-003',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
+  },
+  {
+    id: 'tgx-lhed-003',
+    name: 'TGX 工程级 LED 大灯',
+    category: 'isuzu',
+    cover: 'tgx.png',
   },
 ]
