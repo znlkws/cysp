@@ -1,87 +1,153 @@
-  <!-- src="@/assets/cysp.png" -->
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, defineComponent, h } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
 
-// 导入本地 SVG
+// SVG Icons
 import HomeIcon from '@/assets/svg/home.svg'
 import CategoryIcon from '@/assets/svg/goods.svg'
 import InfoIcon from '@/assets/svg/info-circle.svg'
 import PhoneIcon from '@/assets/svg/phone.svg'
 
 const mobileMenuOpen = ref(false)
+const route = useRoute()
+
+watch(
+  () => route.fullPath,
+  () => (mobileMenuOpen.value = false)
+)
+
+watch(mobileMenuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
+/* ✅ 桌面导航组件 */
+const NavLink = defineComponent({
+  props: {
+    to: String,
+    label: String,
+  },
+  setup(props, { slots }) {
+    return () =>
+      h(
+        RouterLink,
+        {
+          to: props.to,
+          class:
+            'group flex items-center gap-2 font-semibold text-base text-slate-700 hover:text-blue-600 transition',
+          activeClass: 'text-blue-600',
+        },
+        {
+          default: () => [
+            h('span', { class: 'icon' }, slots.default?.()),
+            h(
+              'span',
+              { class: 'relative' },
+              [
+                props.label,
+                h('span', {
+                  class:
+                    'absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full',
+                }),
+              ]
+            ),
+          ],
+        }
+      )
+  },
+})
+
+/* ✅ 移动端导航组件 */
+const MobileLink = defineComponent({
+  props: {
+    to: String,
+    label: String,
+  },
+  setup(props, { slots }) {
+    return () =>
+      h(
+        RouterLink,
+        {
+          to: props.to,
+          class:
+            'flex items-center gap-3 px-5 py-4 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition',
+          activeClass: 'text-blue-600 bg-blue-50',
+        },
+        {
+          default: () => [
+            h('span', { class: 'icon' }, slots.default?.()),
+            props.label,
+          ],
+        }
+      )
+  },
+})
 </script>
 
 <template>
-  <header class="bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-18">
       <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="#/">
-          <img class="h-20 w-auto" src="@/assets/cysp1.png" alt="Logo" />
-        </a>
-      </div>
+      <RouterLink to="/" class="flex items-center">
+        <img src="@/assets/cysp1.png" class="h-14" alt="Logo" />
+      </RouterLink>
 
-      <!-- 移动端菜单按钮 -->
-      <div class="flex md:hidden">
-        <button @click="mobileMenuOpen = !mobileMenuOpen" type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- 桌面菜单 -->
-      <nav class="hidden md:flex space-x-10">
-        <a href="#/" class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">
-          <HomeIcon class="h-5 w-5 mr-2" />
-          Home
-        </a>
-        <a href="#/category" class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">
-          <CategoryIcon class="h-5 w-5 mr-2" />
-          Category
-        </a>
-        <a href="#/about" class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">
-          <InfoIcon class="h-5 w-5 mr-2" />
-          About
-        </a>
-        <a href="#/contact" class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">
-          <PhoneIcon class="h-5 w-5 mr-2" />
-          Contact Us
-        </a>
+      <!-- Desktop -->
+      <nav class="hidden md:flex gap-10">
+        <NavLink to="/" label="Home"><HomeIcon /></NavLink>
+        <NavLink to="/category" label="Category"><CategoryIcon /></NavLink>
+        <NavLink to="/about" label="About"><InfoIcon /></NavLink>
+        <NavLink to="/contact" label="Contact"><PhoneIcon /></NavLink>
       </nav>
+
+      <!-- Mobile Toggle -->
+      <button
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            v-if="!mobileMenuOpen"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            v-else
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
     </div>
 
-    <!-- 移动端折叠菜单 -->
-    <div v-if="mobileMenuOpen" class="md:hidden bg-white border-t border-gray-200">
-      <nav class="px-2 pt-2 pb-4 space-y-2">
-        <a href="#/" class="flex items-center px-4 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-          <HomeIcon class="h-5 w-5 mr-2" />
-          Home
-        </a>
-        <a href="#/category" class="flex items-center px-4 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-          <CategoryIcon class="h-5 w-5 mr-2" />
-          Category
-        </a>
-        <a href="#/about" class="flex items-center px-4 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-          <InfoIcon class="h-5 w-5 mr-2" />
-          About
-        </a>
-        <a href="#/contact" class="flex items-center px-4 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-          <PhoneIcon class="h-5 w-5 mr-2" />
-          Contact Us
-        </a>
+    <!-- Mobile Menu -->
+    <transition name="mobile-menu">
+      <nav v-if="mobileMenuOpen" class="md:hidden border-t bg-white">
+        <MobileLink to="/" label="Home"><HomeIcon /></MobileLink>
+        <MobileLink to="/category" label="Category"><CategoryIcon /></MobileLink>
+        <MobileLink to="/about" label="About"><InfoIcon /></MobileLink>
+        <MobileLink to="/contact" label="Contact"><PhoneIcon /></MobileLink>
       </nav>
-    </div>
+    </transition>
   </header>
 </template>
 
-
-
 <style scoped>
-/* 可选：header 固定高度 shadow */
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: all 260ms ease;
+}
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
 </style>
