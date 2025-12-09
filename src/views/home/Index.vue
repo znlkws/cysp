@@ -1,6 +1,20 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import { imgUrl } from '@/utils/index'
+import VolvoIcon from '@/assets/svg/vehicles/volvo.svg'
+import ManIcon from '@/assets/svg/vehicles/man.svg'
+import ScaniaIcon from '@/assets/svg/vehicles/scania.svg'
+import BenzIcon from '@/assets/svg/vehicles/benz.svg'
+import IsuzuIcon from '@/assets/svg/vehicles/isuzu.svg'
+
+const vehicles = [
+  { name: 'VOLVO', icon: VolvoIcon },
+  { name: 'SCANIA', icon: ScaniaIcon },
+  { name: 'MAN', icon: ManIcon },
+  { name: 'BENZ', icon: BenzIcon },
+  { name: 'ISUZU', icon: IsuzuIcon },
+  { name: 'HINO', type: 'text' },
+]
 
 const canvasRef = ref(null)
 let ctx
@@ -128,117 +142,119 @@ const goContact = () => {
   location.hash = '#/contact'
 }
 
-/* 简单轮播（不依赖库，稳定） */
-const slides = [
-  {
-    title: 'Ultra-Long Beam Distance',
-    desc: 'Designed for night highways and heavy-duty operation',
-    img: '/hero/slide1.jpg',
-  },
-  {
-    title: 'Precision Projector Optics',
-    desc: 'Sharp cut-off, stable output, OEM-grade structure',
-    img: '/hero/slide2.jpg',
-  },
-  {
-    title: 'Plug & Play Installation',
-    desc: 'No vehicle modification required',
-    img: '/hero/slide3.jpg',
-  },
-]
-
-const currentSlide = ref(0)
-
-onMounted(() => {
-  setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length
-  }, 4000)
-})
 </script>
 
 <template>
   <main class="w-full bg-slate-900 text-slate-100">
 
     <!-- ================= HERO WITH CANVAS ================= -->
-  <section class="relative min-h-[100svh] flex items-center overflow-hidden select-none">
+    <section class="
+      relative
+      flex items-center
+      overflow-hidden
+      select-none
 
-    <!-- Canvas 动态背景 -->
-    <canvas
-      ref="canvasRef"
-      class="absolute inset-0 w-full h-full block"
-    ></canvas>
+      min-h-[72vh]
+      md:min-h-[68vh]
+      lg:min-h-[640px]
+    ">
 
-    <!-- 顶部黑色渐层遮罩（保持文字可读） -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
+      <!-- Canvas 动态背景 -->
+      <canvas
+        ref="canvasRef"
+        class="absolute inset-0 w-full h-full block"
+      ></canvas>
 
-    <!-- 内容层 -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <!-- 顶部黑色渐层遮罩（保持文字可读） -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
 
-      <!-- 文案 -->
-      <div>
-        <h1 class="text-4xl md:text-5xl font-semibold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-          Precision LED Headlights<br />
-          for Heavy-Duty Trucks
-        </h1>
+      <!-- 内容层 -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-        <p class="mt-6 text-lg text-slate-300 max-w-xl">
-          High-performance projector systems for European & Japanese trucks.
-          Designed for long-distance safety and 24V/12V commercial use.
-        </p>
+        <!-- 文案 -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-semibold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            Precision LED Headlights<br />
+            for Heavy-Duty Trucks
+          </h1>
 
-        <div class="mt-10 flex gap-4 flex-wrap">
-          <a
-            href="#/category"
-            class="px-6 py-3 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-500 transition"
-          >
-            View Products
-          </a>
+          <p class="mt-6 text-lg text-slate-300 max-w-xl">
+            High-performance projector systems for European & Japanese trucks.
+            Designed for long-distance safety and 24V/12V commercial use.
+          </p>
 
-          <a
-            href="#/contact"
-            class="px-6 py-3 rounded-full border border-slate-500 text-white text-sm hover:border-white transition"
-          >
-            Contact Us
-          </a>
+          <div class="mt-10 flex gap-4 flex-wrap">
+            <a
+              href="#/category"
+              class="px-6 py-3 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-500 transition"
+            >
+              View Products
+            </a>
+
+            <a
+              href="#/contact"
+              class="px-6 py-3 rounded-full border border-slate-500 text-white text-sm hover:border-white transition"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- 右侧静态大灯图（可换成你的产品图） -->
+        <div class="relative">
+          <img
+            :src="imgUrl('tgx.png')"
+            class="w-full rounded-3xl shadow-2xl border border-white/10 object-cover"
+            alt="Truck Headlamp"
+          />
         </div>
       </div>
-
-      <!-- 右侧静态大灯图（可换成你的产品图） -->
-      <div class="relative">
-        <img
-          :src="imgUrl('tgx.png')"
-          class="w-full rounded-3xl shadow-2xl border border-white/10 object-cover"
-          alt="Truck Headlamp"
-        />
-      </div>
-    </div>
-  </section>
+    </section>
 
     <!-- ================= ADVANTAGES ================= -->
-    <section class="py-20 bg-slate-950">
+    <section class="py-24 bg-slate-950">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          <div class="text-center">
-            <div class="text-blue-500 text-2xl font-semibold">OEM</div>
-            <p class="mt-3 text-sm text-slate-400">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="relative rounded-2xl border border-slate-800
+               bg-gradient-to-b from-slate-900 to-slate-950
+               p-6 text-center
+               hover:border-blue-500/60
+               transition">
+            <div class="text-blue-500 text-3xl font-semibold">OEM</div>
+            <p class="mt-4 text-sm text-slate-400 leading-relaxed">
               OEM-grade engineering and manufacturing
             </p>
           </div>
-          <div class="text-center">
-            <div class="text-blue-500 text-2xl font-semibold">Beam</div>
-            <p class="mt-3 text-sm text-slate-400">
+
+          <div class="relative rounded-2xl border border-slate-800
+               bg-gradient-to-b from-slate-900 to-slate-950
+               p-6 text-center
+               hover:border-blue-500/60
+               transition">
+            <div class="text-blue-500 text-3xl font-semibold">Beam</div>
+            <p class="mt-4 text-sm text-slate-400 leading-relaxed">
               Precise beam pattern & sharp cut-off
             </p>
           </div>
-          <div class="text-center">
-            <div class="text-blue-500 text-2xl font-semibold">24V/12V</div>
-            <p class="mt-3 text-sm text-slate-400">
-              Designed for heavy-duty 24V/12V truck systems
+
+          <div class="relative rounded-2xl border border-slate-800
+               bg-gradient-to-b from-slate-900 to-slate-950
+               p-6 text-center
+               hover:border-blue-500/60
+               transition">
+            <div class="text-blue-500 text-3xl font-semibold">24V / 12V</div>
+            <p class="mt-4 text-sm text-slate-400 leading-relaxed">
+              Designed for heavy-duty 24V / 12V truck systems
             </p>
           </div>
-          <div class="text-center">
-            <div class="text-blue-500 text-2xl font-semibold">Fit</div>
-            <p class="mt-3 text-sm text-slate-400">
+
+          <div class="relative rounded-2xl border border-slate-800
+               bg-gradient-to-b from-slate-900 to-slate-950
+               p-6 text-center
+               hover:border-blue-500/60
+               transition">
+            <div class="text-blue-500 text-3xl font-semibold">Fit</div>
+            <p class="mt-4 text-sm text-slate-400 leading-relaxed">
               Plug & play, no vehicle modification required
             </p>
           </div>
@@ -247,19 +263,72 @@ onMounted(() => {
     </section>
 
     <!-- ================= VEHICLE COVERAGE ================= -->
-    <section class="py-20 bg-slate-900">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-semibold text-white text-center mb-12">
+    <section class="py-24 bg-slate-900 relative overflow-hidden">
+      <!-- subtle background glow -->
+      <div class="absolute inset-0 pointer-events-none
+           bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_60%)]" />
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <!-- Title -->
+        <h2 class="text-2xl font-semibold text-white text-center mb-14 tracking-wide">
           Vehicle Coverage
         </h2>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center text-center text-slate-400 text-sm">
-          <div>Volvo FH</div>
-          <div>MAN TGX</div>
-          <div>Scania</div>
-          <div>Actros</div>
-          <div>Isuzu</div>
-          <div>Hino</div>
+        <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6
+             gap-x-10 gap-y-14 text-center">
+          <!-- Item -->
+          <div
+            v-for="item in vehicles"
+            :key="item.name"
+            class="group relative flex flex-col items-center"
+          >
+            <!-- Icon container -->
+            <div class="relative flex items-center justify-center
+                 h-14 w-14 rounded-xl
+                 bg-slate-800/40 border border-slate-700/60
+                 transition-all duration-300
+                 group-hover:border-blue-500/40
+                 group-hover:bg-slate-800/70">
+              <!-- ✅ SVG Icon -->
+              <component
+                v-if="item.type !== 'text'"
+                :is="item.icon"
+                class="h-8 w-8 text-slate-400
+                   transition-colors duration-300
+                   group-hover:text-blue-400"
+              />
+
+              <!-- ✅ HINO Text Logo -->
+              <span
+                v-else
+                class="font-black tracking-[0.15em]
+                   text-[12px]
+                   text-slate-400
+                   transition-colors duration-300
+                   group-hover:text-blue-400"
+              >
+                HINO
+              </span>
+
+              <!-- Cut-off light line -->
+              <span class="absolute -bottom-1 left-1/2 -translate-x-1/2
+                   w-6 h-[2px]
+                   bg-blue-500/70 opacity-0
+                   blur-[1px]
+                   transition-all duration-300
+                   group-hover:opacity-100
+                   group-hover:w-8" />
+            </div>
+
+            <!-- Name -->
+            <span class="mt-4 text-sm font-medium tracking-wide
+                 text-slate-400
+                 transition-colors duration-300
+                 group-hover:text-slate-200">
+              {{ item.name }}
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -271,7 +340,10 @@ onMounted(() => {
           <h2 class="text-2xl font-semibold text-white">
             Featured Products
           </h2>
-          <a href="#/category" class="text-sm text-blue-400 hover:underline">
+          <a
+            href="#/category"
+            class="text-sm text-blue-400 hover:underline"
+          >
             View all →
           </a>
         </div>
@@ -344,7 +416,7 @@ canvas {
 /* Text Shadow on mobile */
 @media (max-width: 768px) {
   h1 {
-    text-shadow: 0 0 12px rgba(0,0,0,0.7);
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
   }
 }
 </style>
