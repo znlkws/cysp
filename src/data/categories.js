@@ -1,6 +1,6 @@
 export const categories = [
     {
-        id: 'volvo-fh',
+        id: 'volvo',
         name: 'VOLVO',
     },
     {
@@ -29,7 +29,7 @@ export const categories = [
     },
     {
         id: 'howo',
-        name: 'HOWO',
+        name: 'HOWO/SITRAK',
     },
     {
         id: 'kamaz',
@@ -42,5 +42,9 @@ export const categories = [
     {
         id: 'renualt',
         name: 'RENAULT',
+    },
+    {
+        id: 'lq',
+        name: 'LQ',
     },
 ]

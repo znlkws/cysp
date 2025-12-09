@@ -99,6 +99,7 @@ watch(
                 >
                   <!-- 图片 -->
                   <div class="relative">
+                    <!-- {{imgUrl(p.cover)}} -->
                     <LazyImage
                       :src="imgUrl(p.cover)"
                       class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
@@ -118,7 +119,7 @@ watch(
                     </div>
 
                     <div class="mt-3 flex items-center justify-between">
-                      <span class="text-xs text-slate-500">Truck Headlamp</span>
+                      <span class="text-xs text-slate-500">{{p.type}}</span>
                       <span class="text-xs font-medium text-blue-600 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                         View →
                       </span>
