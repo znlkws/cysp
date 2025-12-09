@@ -9,12 +9,12 @@ import IsuzuIcon from '@/assets/svg/vehicles/isuzu.svg'
 import TechCanvas from '@/components/TechCanvas.vue'
 
 const vehicles = [
-  { name: 'VOLVO', icon: VolvoIcon },
-  { name: 'SCANIA', icon: ScaniaIcon },
-  { name: 'MAN', icon: ManIcon },
-  { name: 'BENZ', icon: BenzIcon },
-  { name: 'ISUZU', icon: IsuzuIcon },
-  { name: 'HINO', type: 'text' },
+  { name: 'VOLVO', icon: VolvoIcon },
+  { name: 'SCANIA', icon: ScaniaIcon },
+  { name: 'MAN', icon: ManIcon },
+  { name: 'BENZ', icon: BenzIcon },
+  { name: 'ISUZU', icon: IsuzuIcon },
+  { name: 'HINO', type: 'text' },
 ]
 
 // const canvasRef = ref(null)
@@ -153,10 +153,10 @@ const vehicles = [
 
 /* Hero CTA */
 const goProducts = () => {
-  location.hash = '#/category'
+  location.hash = '#/category'
 }
 const goContact = () => {
-  location.hash = '#/contact'
+  location.hash = '#/contact'
 }
 </script>
 
@@ -182,8 +182,11 @@ const goContact = () => {
       ></canvas> -->
 
       <!-- ✅ 成品 Canvas 背景 -->
-  <TechCanvas density="strong" scroll-react />
-  
+      <TechCanvas
+        density="strong"
+        scroll-react
+      />
+
       <!-- 顶部黑色渐层遮罩（保持文字可读） -->
       <div class="absolute inset-0 
       bg-gradient-to-b
@@ -307,8 +310,8 @@ border-slate-700/60
         </h2>
 
         <!-- Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6
-             gap-x-10 gap-y-14 text-center">
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6
+     gap-x-10 gap-y-14 text-center">
           <!-- Item -->
           <div
             v-for="item in vehicles"
