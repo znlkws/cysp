@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, defineComponent, h } from 'vue'
+import { ref, watch, defineComponent, h, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 
 // SVG Icons
@@ -11,16 +11,42 @@ import PhoneIcon from '@/assets/svg/phone.svg'
 const mobileMenuOpen = ref(false)
 const route = useRoute()
 
+// 关闭菜单：供 overlay、路由变化等调用
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
+
+// 路由变化自动收起（你已有）
 watch(
   () => route.fullPath,
   () => (mobileMenuOpen.value = false)
 )
 
+// 锁 body 滚动（你已有）
 watch(mobileMenuOpen, (open) => {
   document.body.style.overflow = open ? 'hidden' : ''
 })
 
-/* ✅ 桌面导航组件 */
+// ========== 计算 header 高度（用于 panel top） ==========
+const headerRef = ref(null)
+const headerTop = ref(0) // 顶部偏移，一般是 header 高度
+
+const updateHeaderTop = () => {
+  if (!headerRef.value) return
+  const rect = headerRef.value.getBoundingClientRect()
+  headerTop.value = Math.round(rect.height)
+}
+
+onMounted(() => {
+  // 等 DOM 完全渲染后读取高度
+  nextTick(updateHeaderTop)
+  window.addEventListener('resize', updateHeaderTop)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateHeaderTop)
+})
+
+/* ✅ 桌面导航组件（保持你原样） */
 const NavLink = defineComponent({
   props: {
     to: String,
@@ -56,7 +82,7 @@ const NavLink = defineComponent({
   },
 })
 
-/* ✅ 移动端导航组件 */
+/* ✅ 移动端导航组件（保持你原样） */
 const MobileLink = defineComponent({
   props: {
     to: String,
@@ -84,7 +110,8 @@ const MobileLink = defineComponent({
 </script>
 
 <template>
-  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+  <!-- headerRef 用来测量 header 高度 -->
+  <header ref="headerRef" class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-18">
       <!-- Logo -->
       <RouterLink to="/" class="flex items-center">
@@ -103,6 +130,7 @@ const MobileLink = defineComponent({
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+        aria-label="Toggle menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -123,15 +151,34 @@ const MobileLink = defineComponent({
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <transition name="mobile-menu">
-      <nav v-if="mobileMenuOpen" class="md:hidden border-t bg-white">
-        <MobileLink to="/" label="Home"><HomeIcon /></MobileLink>
-        <MobileLink to="/category" label="Category"><CategoryIcon /></MobileLink>
-        <MobileLink to="/about" label="About"><InfoIcon /></MobileLink>
-        <MobileLink to="/contact" label="Contact"><PhoneIcon /></MobileLink>
-      </nav>
-    </transition>
+    <!-- 使用 teleport 把 overlay 挂到 body，避免被父容器约束 -->
+    <teleport to="body">
+      <transition name="fade">
+        <div
+          v-if="mobileMenuOpen"
+          class="fixed inset-0 z-40 md:hidden"
+          aria-hidden="true"
+        >
+          <!-- 点击遮罩任意位置收起 -->
+          <div
+            class="absolute inset-0 bg-black/30 backdrop-blur-sm"
+            @click="closeMobileMenu"
+          />
+
+          <!-- 菜单面板：使用 fixed 并根据 headerTop 设 top 值 -->
+          <nav
+            class="fixed left-0 w-full bg-white border-t shadow-lg"
+            :style="{ top: headerTop + 'px' }"
+            @click.stop
+          >
+            <MobileLink to="/" label="Home" @click.native="closeMobileMenu"><HomeIcon /></MobileLink>
+            <MobileLink to="/category" label="Category" @click.native="closeMobileMenu"><CategoryIcon /></MobileLink>
+            <MobileLink to="/about" label="About" @click.native="closeMobileMenu"><InfoIcon /></MobileLink>
+            <MobileLink to="/contact" label="Contact" @click.native="closeMobileMenu"><PhoneIcon /></MobileLink>
+          </nav>
+        </div>
+      </transition>
+    </teleport>
   </header>
 </template>
 
@@ -141,13 +188,13 @@ const MobileLink = defineComponent({
   height: 20px;
 }
 
-.mobile-menu-enter-active,
-.mobile-menu-leave-active {
-  transition: all 260ms ease;
+/* overlay 淡入 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 220ms ease;
 }
-.mobile-menu-enter-from,
-.mobile-menu-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(-8px);
 }
 </style>
