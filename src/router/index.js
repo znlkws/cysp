@@ -29,7 +29,21 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // ✅ 命中 /category 时，一定回到顶部
+    if (to.path === '/category') {
+      return { top: 0 }
+    }
+
+    // 浏览器前进 / 后退
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    // 默认行为
+    return { top: 0 }
+  }
 })
 
 export default router
