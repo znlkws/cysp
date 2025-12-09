@@ -8,141 +8,157 @@ import BenzIcon from '@/assets/svg/vehicles/benz.svg'
 import IsuzuIcon from '@/assets/svg/vehicles/isuzu.svg'
 
 const vehicles = [
-  { name: 'VOLVO', icon: VolvoIcon },
-  { name: 'SCANIA', icon: ScaniaIcon },
-  { name: 'MAN', icon: ManIcon },
-  { name: 'BENZ', icon: BenzIcon },
-  { name: 'ISUZU', icon: IsuzuIcon },
-  { name: 'HINO', type: 'text' },
+  { name: 'VOLVO', icon: VolvoIcon },
+  { name: 'SCANIA', icon: ScaniaIcon },
+  { name: 'MAN', icon: ManIcon },
+  { name: 'BENZ', icon: BenzIcon },
+  { name: 'ISUZU', icon: IsuzuIcon },
+  { name: 'HINO', type: 'text' },
 ]
 
 const canvasRef = ref(null)
 let ctx
 let w, h
 let beams = []
-let particles = []
 let animationFrame
+let glowAlpha = 0.5;
+let glowDirection = 1;
 
 /* =====================
-   动态光束（Beam）对象
+   极简光学 Beam - 增强可见版
 ===================== */
 class Beam {
-  constructor() {
-    this.reset()
-  }
-  reset() {
-    this.x = Math.random() * w
-    this.y = h + Math.random() * 200
-    this.speed = 1.2 + Math.random() * 1.8
-    this.length = 80 + Math.random() * 160
-    this.opacity = 0.15 + Math.random() * 0.15
-  }
-  update() {
-    this.y -= this.speed
-    if (this.y + this.length < 0) this.reset()
-  }
-  draw() {
-    const g = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.length)
-    g.addColorStop(0, `rgba(96,165,250, ${this.opacity})`)
-    g.addColorStop(1, `rgba(96,165,250, 0)`)
+  constructor() {
+    this.reset()
+  }
 
-    ctx.beginPath()
-    ctx.strokeStyle = g
-    ctx.lineWidth = 2
-    ctx.moveTo(this.x, this.y)
-    ctx.lineTo(this.x, this.y + this.length)
-    ctx.stroke()
-  }
+  reset() {
+    this.x = Math.random() * w
+    this.y = h + Math.random() * 200
+
+    // ⬆️ 略微提速
+    this.speed = 0.8 + Math.random() * 1.2 
+    this.length = 200 + Math.random() * 350 // 略长
+
+    // ⬆️ 透明度提高，更明显
+    this.opacity = 0.08 + Math.random() * 0.12 
+    // ⬆️ 宽度增加
+    this.width = 1.2 + Math.random() * 1.5 
+  }
+
+  update() {
+    this.y -= this.speed
+    if (this.y + this.length < 0) this.reset()
+  }
+
+  draw() {
+    const g = ctx.createLinearGradient(
+      this.x,
+      this.y,
+      this.x,
+      this.y + this.length
+    )
+
+    // 💡 偏冷白 (186, 213, 255)
+    const color = '186, 213, 255' 
+
+    g.addColorStop(0, `rgba(${color}, ${this.opacity})`)
+    g.addColorStop(1, `rgba(${color}, 0)`) 
+
+    ctx.strokeStyle = g
+    ctx.lineWidth = this.width
+    ctx.beginPath()
+    ctx.moveTo(this.x, this.y)
+    ctx.lineTo(this.x, this.y + this.length)
+    ctx.stroke()
+  }
 }
 
 /* =====================
-   粒子光点（Sparkles）
-===================== */
-class Particle {
-  constructor() {
-    this.reset()
-  }
-  reset() {
-    this.x = Math.random() * w
-    this.y = Math.random() * h
-    this.size = 1 + Math.random() * 2
-    this.opacity = 0.05 + Math.random() * 0.15
-    this.speed = 0.15 + Math.random() * 0.4
-  }
-  update() {
-    this.y -= this.speed
-    if (this.y < 0) {
-      this.y = h
-      this.x = Math.random() * w
-    }
-  }
-  draw() {
-    ctx.fillStyle = `rgba(147,197,253, ${this.opacity})`
-    ctx.beginPath()
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-    ctx.fill()
-  }
-}
-
-/* =====================
-   初始化动画
+   初始化
 ===================== */
 onMounted(() => {
-  const canvas = canvasRef.value
-  ctx = canvas.getContext('2d')
+  const canvas = canvasRef.value
+  ctx = canvas.getContext('2d')
 
-  function resize() {
-    w = canvas.width = window.innerWidth
-    h = canvas.height = window.innerHeight
-  }
-  resize()
-  window.addEventListener('resize', resize)
+  const resize = () => {
+    w = canvas.width = window.innerWidth
+    h = canvas.height = window.innerHeight
+  }
+  resize()
+  window.addEventListener('resize', resize)
 
-  // 创建光束与粒子
-  beams = Array.from({ length: 28 }, () => new Beam())
-  particles = Array.from({ length: 40 }, () => new Particle())
+  // Beam 数量保持适中
+  beams = Array.from({ length: 15 }, () => new Beam())
 
-  // 动画循环
-  const loop = () => {
-    ctx.clearRect(0, 0, w, h)
+  const loop = () => {
+    ctx.clearRect(0, 0, w, h)
 
-    // 背景渐层
-    const bg = ctx.createLinearGradient(0, 0, 0, h)
-    bg.addColorStop(0, 'rgba(15,23,42,1)')
-    bg.addColorStop(1, 'rgba(2,6,23,1)')
-    ctx.fillStyle = bg
-    ctx.fillRect(0, 0, w, h)
+    /* 1. 绘制背景 */
+    const bg = ctx.createLinearGradient(0, 0, 0, h)
+    bg.addColorStop(0, 'rgb(51,65,85)')   // slate-700
+    bg.addColorStop(1, 'rgb(30,41,59)')   // slate-800
 
-    beams.forEach((b) => {
-      b.update()
-      b.draw()
-    })
+    ctx.fillStyle = bg
+    ctx.fillRect(0, 0, w, h)
 
-    particles.forEach((p) => {
-      p.update()
-      p.draw()
-    })
+    /* 2. 绘制环境光晕（聚光灯效果） */
+    // 呼吸效果不变
+    glowAlpha += glowDirection * 0.003;
+    if (glowAlpha > 0.7 || glowAlpha < 0.4) { // ⬆️ 呼吸范围略微提高
+      glowDirection *= -1;
+    }
 
-    animationFrame = requestAnimationFrame(loop)
-  }
+    // 绘制一个中心光晕，突出产品图
+    const centerX = w * 0.7; 
+    const centerY = h * 0.5;
+    const radius = Math.min(w, h) * 0.4; // 略微扩大范围
 
-  loop()
+    const radialGlow = ctx.createRadialGradient(
+      centerX,
+      centerY,
+      0,
+      centerX,
+      centerY,
+      radius
+    );
 
-  onBeforeUnmount(() => {
-    cancelAnimationFrame(animationFrame)
-    window.removeEventListener('resize', resize)
-  })
+    const glowColor = '255, 255, 255'; 
+    // ⬆️ 整体提高光晕亮度
+    radialGlow.addColorStop(0, `rgba(${glowColor}, ${glowAlpha * 0.4})`); // 核心更亮
+    radialGlow.addColorStop(0.4, `rgba(${glowColor}, ${glowAlpha * 0.15})`); // 中间层更亮
+    radialGlow.addColorStop(1, `rgba(${glowColor}, 0)`); 
+
+    ctx.fillStyle = radialGlow;
+    ctx.fillRect(0, 0, w, h);
+
+
+    /* 3. 绘制光束 */
+    beams.forEach((b) => {
+      b.update()
+      b.draw()
+    })
+
+    animationFrame = requestAnimationFrame(loop)
+  }
+
+  loop()
+
+  onBeforeUnmount(() => {
+    cancelAnimationFrame(animationFrame)
+    window.removeEventListener('resize', resize)
+  })
 })
 
 /* Hero CTA */
 const goProducts = () => {
-  location.hash = '#/category'
+  location.hash = '#/category'
 }
 const goContact = () => {
-  location.hash = '#/contact'
+  location.hash = '#/contact'
 }
-
 </script>
+
 
 <template>
   <main class="w-full bg-slate-900 text-slate-100">
@@ -153,7 +169,6 @@ const goContact = () => {
       flex items-center
       overflow-hidden
       select-none
-
       min-h-[72vh]
       md:min-h-[68vh]
       lg:min-h-[640px]
@@ -166,7 +181,12 @@ const goContact = () => {
       ></canvas>
 
       <!-- 顶部黑色渐层遮罩（保持文字可读） -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
+      <div class="absolute inset-0 
+      bg-gradient-to-b
+      from-slate-900/40
+      via-slate-900/55
+      to-slate-950/80">
+      </div>
 
       <!-- 内容层 -->
       <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -212,11 +232,12 @@ const goContact = () => {
     </section>
 
     <!-- ================= ADVANTAGES ================= -->
-    <section class="py-24 bg-slate-950">
+    <section class="py-24 bg-slate-900">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div class="relative rounded-2xl border border-slate-800
-               bg-gradient-to-b from-slate-900 to-slate-950
+               bg-gradient-to-b bg-gradient-to-b from-slate-800/80 to-slate-900
+border-slate-700/60
                p-6 text-center
                hover:border-blue-500/60
                transition">
@@ -227,7 +248,8 @@ const goContact = () => {
           </div>
 
           <div class="relative rounded-2xl border border-slate-800
-               bg-gradient-to-b from-slate-900 to-slate-950
+               bg-gradient-to-b bg-gradient-to-b from-slate-800/80 to-slate-900
+border-slate-700/60
                p-6 text-center
                hover:border-blue-500/60
                transition">
@@ -238,7 +260,8 @@ const goContact = () => {
           </div>
 
           <div class="relative rounded-2xl border border-slate-800
-               bg-gradient-to-b from-slate-900 to-slate-950
+               bg-gradient-to-b bg-gradient-to-b from-slate-800/80 to-slate-900
+border-slate-700/60
                p-6 text-center
                hover:border-blue-500/60
                transition">
@@ -249,7 +272,8 @@ const goContact = () => {
           </div>
 
           <div class="relative rounded-2xl border border-slate-800
-               bg-gradient-to-b from-slate-900 to-slate-950
+               bg-gradient-to-b bg-gradient-to-b from-slate-800/80 to-slate-900
+border-slate-700/60
                p-6 text-center
                hover:border-blue-500/60
                transition">
@@ -263,7 +287,11 @@ const goContact = () => {
     </section>
 
     <!-- ================= VEHICLE COVERAGE ================= -->
-    <section class="py-24 bg-slate-900 relative overflow-hidden">
+    <section class="py-24 
+    bg-gradient-to-b 
+    from-slate-900 
+    via-slate-900 
+    to-slate-950">
       <!-- subtle background glow -->
       <div class="absolute inset-0 pointer-events-none
            bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_60%)]" />
@@ -334,7 +362,7 @@ const goContact = () => {
     </section>
 
     <!-- ================= FEATURED PRODUCTS ================= -->
-    <section class="py-24 bg-slate-950">
+    <section class="py-24 bg-slate-900">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
           <h2 class="text-2xl font-semibold text-white">
@@ -352,7 +380,9 @@ const goContact = () => {
           <div
             v-for="i in 4"
             :key="i"
-            class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:-translate-y-1 hover:border-blue-500 transition"
+            class="bg-slate-800
+border-slate-700/60
+hover:border-blue-500/60 rounded-2xl overflow-hidden hover:-translate-y-1 transition"
           >
             <div class="aspect-[4/3] bg-slate-800" />
             <div class="p-4">

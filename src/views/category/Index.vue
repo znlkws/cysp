@@ -86,7 +86,7 @@ watch(
               v-else
               name="fade-move"
               tag="div"
-              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8 items-start justify-items-start content-start auto-rows-min min-w-0"
+              class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8 items-start justify-items-start content-start auto-rows-min min-w-0"
             >
               <template
                 v-for="p in displayList"
