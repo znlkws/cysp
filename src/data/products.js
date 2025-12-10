@@ -128,6 +128,14 @@ export const products = [
     cover: 'CY-MAN-05.png',
     images: [],
   },
+  {
+    id: '025',
+    name: 'CY-HW-17',
+    category: 'howo',
+    type: 'Fog lamp',
+    cover: 'CY-MAN-06.png',
+    images: [],
+  },
   /* man */
   {
     id: '011',
@@ -169,6 +177,66 @@ export const products = [
     cover: 'CY-MAN-05.png',
     images: [],
   },
+  {
+    id: '024',
+    name: 'CY-MAN-06',
+    category: 'man',
+    type: 'Fog lamp',
+    cover: 'CY-MAN-06.png',
+    images: [],
+    LED: false
+  },
+  {
+    id: '026',
+    name: 'CY-MAN-07',
+    category: 'man',
+    type: 'Headlamp',
+    cover: 'CY-MAN-07.jpg',
+    images: [],
+    LED: false
+  },
+  {
+    id: '027',
+    name: 'CY-MAN-08',
+    category: 'man',
+    type: 'Headlamp',
+    cover: 'CY-MAN-08.png',
+    images: [],
+    LED: false
+  },
+  {
+    id: '028',
+    name: 'CY-MAN-09',
+    category: 'man',
+    type: 'Fog lamp',
+    cover: 'CY-MAN-09.png',
+    images: [],
+    LED: false
+  },
+  {
+    id: '029',
+    name: 'CY-MAN-10',
+    category: 'man',
+    type: 'Fog lamp',
+    cover: 'CY-MAN-10.png',
+    images: []
+  },
+  {
+    id: '030',
+    name: 'CY-MAN-11',
+    category: 'man',
+    type: 'Headlamp',
+    cover: 'CY-MAN-11.jpg',
+    images: []
+  },
+  {
+    id: '031',
+    name: 'CY-MAN-12',
+    category: 'man',
+    type: 'Fog lamp',
+    cover: 'CY-MAN-12.jpg',
+    images: []
+  },
   /* Daf */
   {
     id: '021',
@@ -176,6 +244,22 @@ export const products = [
     category: 'daf',
     type: 'Headlamp',
     cover: 'CY-DAF-01.png',
+    images: [],
+  },
+  {
+    id: '032',
+    name: 'CY-DAF-02',
+    category: 'daf',
+    type: 'Fog lamp',
+    cover: 'CY-DAF-02.jpg',
+    images: [],
+  },
+  {
+    id: '033',
+    name: 'CY-DAF-03',
+    category: 'daf',
+    type: 'Fog lamp',
+    cover: 'CY-DAF-03.jpg',
     images: [],
   },
   /* lq */
@@ -187,4 +271,41 @@ export const products = [
     cover: 'CY-LQ-01.JPG',
     images: [],
   },
+  /* volvo */
+  { id: '034', name: 'CY-VOLVO-01', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-01.png', images: [] },
+  { id: '035', name: 'CY-VOLVO-02', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-02.jpg', images: [] },
+  { id: '036', name: 'CY-VOLVO-03', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-03.jpg', images: [] },
+  { id: '037', name: 'CY-VOLVO-04', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-04.jpg', images: [] },
+  { id: '038', name: 'CY-VOLVO-05', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-05.png', images: [] },
+  { id: '039', name: 'CY-VOLVO-06', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-06.png', images: [] },
+  { id: '040', name: 'CY-VOLVO-07', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-07.png', images: [] },
+  { id: '041', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-08.png', images: [] },
+  { id: '042', name: 'CY-VOLVO-09', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-09.png', images: [] },
+  { id: '043', name: 'CY-VOLVO-10', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-10.png', images: [] },
+  { id: '044', name: 'CY-VOLVO-11', category: 'volvo', type: 'Turn signal', cover: 'CY-VLO-11.png', images: [] },
+  { id: '045', name: 'CY-VOLVO-12', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-12.png', images: [] },
+  { id: '046', name: 'CY-VOLVO-13', category: 'volvo', type: 'Turn signal', cover: 'CY-VLO-13.png', images: [] },
+  { id: '047', name: 'CY-VOLVO-14', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-14.png', images: [] },
+  { id: '048', name: 'CY-VOLVO-15', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.jpg', images: [] },
+ /* benz */
+  { id: '049', name: 'CY-BENZ-01', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-01.jpg', images: [] },
+  { id: '050', name: 'CY-BENZ-02', category: 'benz', type: 'Fog lamp', cover: 'CY-BENZ-02.jpg', images: [] },
+  { id: '051', name: 'CY-BENZ-03', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-03.jpg', images: [] },
+  { id: '052', name: 'CY-BENZ-04', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-04.jpg', images: [] },
+  { id: '053', name: 'CY-BENZ-05', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-05.png', images: [] },
+  /* scania */
+  { id: '054', name: 'CY-SCANIA-01', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-01.jpg', images: [] },
+  { id: '055', name: 'CY-SCANIA-02', category: 'scania', type: 'Turn signal', cover: 'CY-SCA-02.jpg', images: [] },
+  { id: '056', name: 'CY-SCANIA-03', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-03.jpg', images: [] },
+  { id: '057', name: 'CY-SCANIA-04', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-04.jpg', images: [] },
+  { id: '058', name: 'CY-SCANIA-05', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-05.jpg', images: [] },
+  { id: '059', name: 'CY-SCANIA-06', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-06.jpg', images: [] },
+  { id: '060', name: 'CY-SCANIA-07', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-07.jpg', images: [] },
+  /* kamaz */
+  { id: '061', name: 'CY-KAMAZ-01', category: 'kamaz', type: 'Headlamp', cover: 'CY-KAMAZ-01.jpg', images: [] },
+  { id: '062', name: 'CY-KAMAZ-02', category: 'kamaz', type: 'Headlamp', cover: 'CY-KAMAZ-02.jpg', images: [] },
+  /* renualt */
+  { id: '063', name: 'CY-RENAULT-01', category: 'renualt', type: 'Headlamp', cover: 'CY-REN-01.jpg', images: [] },
+  /* iveco */
+  { id: '064', name: 'CY-IVECO-01', category: 'iveco', type: 'Headlamp', cover: 'CY-IVC-01.jpg', images: [] },
 ]

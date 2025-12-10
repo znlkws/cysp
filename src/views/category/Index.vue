@@ -51,7 +51,7 @@ watch(
         </div>
 
         <!-- 主体：左栏 + 内容 -->
-        <div class="flex min-h-full">
+        <div class="flex min-h-full pb-3">
 
           <!-- ===== 左侧分类：PC 可见，移动隐藏 ===== -->
           <aside class="hidden md:block bg-white border-r p-4 w-56 shrink-0">
@@ -113,7 +113,7 @@ watch(
                       <h3 class="font-semibold text-[15px] transition-colors group-hover:text-blue-600">
                         {{ p.name }}
                       </h3>
-                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" v-show="p.LED !== false">
                         LED
                       </span>
                     </div>
