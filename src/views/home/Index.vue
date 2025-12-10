@@ -8,6 +8,24 @@ import BenzIcon from '@/assets/svg/vehicles/benz.svg'
 import IsuzuIcon from '@/assets/svg/vehicles/isuzu.svg'
 import TechCanvas from '@/components/TechCanvas.vue'
 
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, EffectFade } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+
+// slides 可以替换为你真实的图片路径
+const slides = [
+  imgUrl('tgx.png'),
+  imgUrl('CY-HW-03.JPG'),
+  imgUrl('CY-HW-04.JPG'),
+]
+
+const autoplay = {
+  delay: 4200,
+  disableOnInteraction: false,
+  pauseOnMouseEnter: true
+}
+
 const vehicles = [
   { name: 'VOLVO', icon: VolvoIcon },
   { name: 'SCANIA', icon: ScaniaIcon },
@@ -17,140 +35,6 @@ const vehicles = [
   { name: 'HINO', type: 'text' },
 ]
 
-// const canvasRef = ref(null)
-// let ctx
-// let w, h
-// let beams = []
-// let animationFrame
-// let glowAlpha = 0.5;
-// let glowDirection = 1;
-
-// /* =====================
-//    极简光学 Beam - 增强可见版
-// ===================== */
-// class Beam {
-//   constructor() {
-//     this.reset()
-//   }
-
-//   reset() {
-//     this.x = Math.random() * w
-//     this.y = h + Math.random() * 200
-
-//     // ⬆️ 略微提速
-//     this.speed = 0.8 + Math.random() * 1.2 
-//     this.length = 200 + Math.random() * 350 // 略长
-
-//     // ⬆️ 透明度提高，更明显
-//     this.opacity = 0.08 + Math.random() * 0.12 
-//     // ⬆️ 宽度增加
-//     this.width = 1.2 + Math.random() * 1.5 
-//   }
-
-//   update() {
-//     this.y -= this.speed
-//     if (this.y + this.length < 0) this.reset()
-//   }
-
-//   draw() {
-//     const g = ctx.createLinearGradient(
-//       this.x,
-//       this.y,
-//       this.x,
-//       this.y + this.length
-//     )
-
-//     // 💡 偏冷白 (186, 213, 255)
-//     const color = '186, 213, 255' 
-
-//     g.addColorStop(0, `rgba(${color}, ${this.opacity})`)
-//     g.addColorStop(1, `rgba(${color}, 0)`) 
-
-//     ctx.strokeStyle = g
-//     ctx.lineWidth = this.width
-//     ctx.beginPath()
-//     ctx.moveTo(this.x, this.y)
-//     ctx.lineTo(this.x, this.y + this.length)
-//     ctx.stroke()
-//   }
-// }
-
-// /* =====================
-//    初始化
-// ===================== */
-// onMounted(() => {
-//   const canvas = canvasRef.value
-//   ctx = canvas.getContext('2d')
-
-//   const resize = () => {
-//     w = canvas.width = window.innerWidth
-//     h = canvas.height = window.innerHeight
-//   }
-//   resize()
-//   window.addEventListener('resize', resize)
-
-//   // Beam 数量保持适中
-//   beams = Array.from({ length: 15 }, () => new Beam())
-
-//   const loop = () => {
-//     ctx.clearRect(0, 0, w, h)
-
-//     /* 1. 绘制背景 */
-//     const bg = ctx.createLinearGradient(0, 0, 0, h)
-//     bg.addColorStop(0, 'rgb(51,65,85)')   // slate-700
-//     bg.addColorStop(1, 'rgb(30,41,59)')   // slate-800
-
-//     ctx.fillStyle = bg
-//     ctx.fillRect(0, 0, w, h)
-
-//     /* 2. 绘制环境光晕（聚光灯效果） */
-//     // 呼吸效果不变
-//     glowAlpha += glowDirection * 0.003;
-//     if (glowAlpha > 0.7 || glowAlpha < 0.4) { // ⬆️ 呼吸范围略微提高
-//       glowDirection *= -1;
-//     }
-
-//     // 绘制一个中心光晕，突出产品图
-//     const centerX = w * 0.7; 
-//     const centerY = h * 0.5;
-//     const radius = Math.min(w, h) * 0.4; // 略微扩大范围
-
-//     const radialGlow = ctx.createRadialGradient(
-//       centerX,
-//       centerY,
-//       0,
-//       centerX,
-//       centerY,
-//       radius
-//     );
-
-//     const glowColor = '255, 255, 255'; 
-//     // ⬆️ 整体提高光晕亮度
-//     radialGlow.addColorStop(0, `rgba(${glowColor}, ${glowAlpha * 0.4})`); // 核心更亮
-//     radialGlow.addColorStop(0.4, `rgba(${glowColor}, ${glowAlpha * 0.15})`); // 中间层更亮
-//     radialGlow.addColorStop(1, `rgba(${glowColor}, 0)`); 
-
-//     ctx.fillStyle = radialGlow;
-//     ctx.fillRect(0, 0, w, h);
-
-
-//     /* 3. 绘制光束 */
-//     beams.forEach((b) => {
-//       b.update()
-//       b.draw()
-//     })
-
-//     animationFrame = requestAnimationFrame(loop)
-//   }
-
-//   loop()
-
-//   onBeforeUnmount(() => {
-//     cancelAnimationFrame(animationFrame)
-//     window.removeEventListener('resize', resize)
-//   })
-// })
-
 /* Hero CTA */
 const goProducts = () => {
   location.hash = '#/category'
@@ -158,6 +42,7 @@ const goProducts = () => {
 const goContact = () => {
   location.hash = '#/contact'
 }
+
 </script>
 
 
@@ -174,12 +59,6 @@ const goContact = () => {
       md:min-h-[68vh]
       lg:min-h-[640px]
     ">
-
-      <!-- Canvas 动态背景 -->
-      <!-- <canvas
-        ref="canvasRef"
-        class="absolute inset-0 w-full h-full block"
-      ></canvas> -->
 
       <!-- ✅ 成品 Canvas 背景 -->
       <TechCanvas
@@ -228,12 +107,49 @@ const goContact = () => {
         </div>
 
         <!-- 右侧静态大灯图（可换成你的产品图） -->
-        <div class="relative">
+        <!-- <div class="relative">
           <img
             :src="imgUrl('tgx.png')"
             class="w-full rounded-3xl shadow-2xl border border-white/10 object-cover"
             alt="Truck Headlamp"
           />
+        </div> -->
+        <!-- 右侧轮播 -->
+        <div class="relative w-full rounded-3xl overflow-hidden
+           shadow-2xl border border-white/10">
+          <!-- 固定高度，保证 Swiper 计算正常 -->
+          <div class="w-full h-[320px] md:h-[400px]">
+            <Swiper
+              :modules="[Autoplay, EffectFade]"
+              :slides-per-view="1"
+              :loop="true"
+              effect="fade"
+              :fadeEffect="{ crossFade: true }"
+              :autoplay="autoplay"
+              :speed="900"
+              class="w-full h-full"
+            >
+              <SwiperSlide
+                v-for="(s, idx) in slides"
+                :key="idx"
+                class="w-full h-full"
+              >
+                <!-- 注意：img 要撑满 slide，高度 100%，object-cover -->
+                <img
+                  :src="s"
+                  class="w-full h-full
+                  object-contain
+                  object-center
+                  block
+                  "
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
+          <!-- subtle overlay -->
+          <div class="pointer-events-none absolute inset-0
+             bg-gradient-to-tr from-black/10 via-transparent to-black/20" />
         </div>
       </div>
     </section>
