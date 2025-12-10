@@ -108,7 +108,7 @@ watch(
                   </div>
 
                   <!-- 信息区 -->
-                  <div class="p-5 bg-slate-50 border-t border-slate-200">
+                  <div class="p-3 pl-4 bg-slate-50 border-t border-slate-200">
                     <div class="flex items-center justify-between">
                       <h3 class="font-semibold text-[15px] transition-colors group-hover:text-blue-600">
                         {{ p.name }}
@@ -118,7 +118,7 @@ watch(
                       </span>
                     </div>
 
-                    <div class="mt-3 flex items-center justify-between">
+                    <div class="mt-0 flex items-center justify-between">
                       <span class="text-xs text-slate-500">{{p.type}}</span>
                       <span class="text-xs font-medium text-blue-600 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                         View →
