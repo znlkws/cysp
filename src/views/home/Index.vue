@@ -15,9 +15,10 @@ import 'swiper/css/effect-fade'
 
 // slides 可以替换为你真实的图片路径
 const slides = [
-  imgUrl('tgx.png'),
-  imgUrl('CY-HW-03.JPG'),
-  imgUrl('CY-HW-04.JPG'),
+  imgUrl('banner01.png'),
+  imgUrl('banner02.png'),
+  imgUrl('banner03.png'),
+  imgUrl('banner04.png')
 ]
 
 const autoplay = {
@@ -43,6 +44,12 @@ const goContact = () => {
   location.hash = '#/contact'
 }
 
+const FEATUREDPRODUCTS = [
+  { id: '01', name: 'VLOVO FH', category: 'benz', type: 'Headlamp', cover: 'CY-VLO-10.png' },
+  { id: '02', name: 'SCANIA G440', category: 'benz', type: 'Headlamp', cover: 'CY-SCA-01.jpg' },
+  { id: '03', name: 'BENZ MP6', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-05.png' },
+  { id: '04', name: 'ISUZU 700', category: 'benz', type: 'Headlamp', cover: 'home-featrue04_03.png', JAPAN: true },
+]
 </script>
 
 
@@ -106,14 +113,6 @@ const goContact = () => {
           </div>
         </div>
 
-        <!-- 右侧静态大灯图（可换成你的产品图） -->
-        <!-- <div class="relative">
-          <img
-            :src="imgUrl('tgx.png')"
-            class="w-full rounded-3xl shadow-2xl border border-white/10 object-cover"
-            alt="Truck Headlamp"
-          />
-        </div> -->
         <!-- 右侧轮播 -->
         <div class="relative w-full rounded-3xl overflow-hidden
            shadow-2xl border border-white/10">
@@ -135,8 +134,16 @@ const goContact = () => {
                 class="w-full h-full"
               >
                 <!-- 注意：img 要撑满 slide，高度 100%，object-cover -->
+                <!-- <LazyImage
+                      :src="imgUrl(s)"
+                      class="w-full h-full
+                  object-contain
+                  object-center
+                  block
+                  "
+                /> -->
                 <img
-                  :src="s"
+                  :src="imgUrl(s)"
                   class="w-full h-full
                   object-contain
                   object-center
@@ -301,19 +308,33 @@ border-slate-700/60
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div
-            v-for="i in 4"
+            v-for="i in FEATUREDPRODUCTS"
             :key="i"
-            class="bg-slate-800
-border-slate-700/60
-hover:border-blue-500/60 rounded-2xl overflow-hidden hover:-translate-y-1 transition"
+            class="group bg-slate-800/80
+           border border-slate-700/60
+           hover:border-blue-500/60
+           rounded-2xl overflow-hidden
+           hover:-translate-y-1 transition"
           >
-            <div class="aspect-[4/3] bg-slate-800" />
+            <!-- 图片区 -->
+            <div class="aspect-[4/3] bg-black flex items-center justify-center">
+              <img
+                :src="imgUrl(i.cover)"
+                alt="LED Projector Headlamp"
+                class="max-w-full max-h-full
+               object-contain
+               transition-transform duration-300
+               group-hover:scale-[1.03]"
+              />
+            </div>
+
+            <!-- 文案 -->
             <div class="p-4">
               <h3 class="text-sm font-medium text-white">
-                LED Projector Headlamp
+                {{i.name}}
               </h3>
               <p class="text-xs text-slate-400 mt-1">
-                For European Trucks
+                {{i.JAPAN ? 'For Japanese Trucks' : 'For European Trucks'}}
               </p>
             </div>
           </div>
