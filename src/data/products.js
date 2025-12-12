@@ -308,4 +308,24 @@ export const products = [
   { id: '063', name: 'CY-RENAULT-01', category: 'renualt', type: 'Headlamp', cover: 'CY-REN-01.jpg', images: [] },
   /* iveco */
   { id: '064', name: 'CY-IVECO-01', category: 'iveco', type: 'Headlamp', cover: 'CY-IVC-01.jpg', images: [] },
+  /* isuzu */
+  { id: '065', name: 'CY-ISUZU-01', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-01.png', images: [] },
+  { id: '066', name: 'CY-ISUZU-02', category: 'isuzu', type: 'Turn signal', cover: 'CY-ISU-02.png', images: [] },
+  { id: '067', name: 'CY-ISUZU-03', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-03.png', images: [] },
+  { id: '068', name: 'CY-ISUZU-04', category: 'isuzu', type: 'Turn signal', cover: 'CY-ISU-04.png', images: [] },
+  { id: '069', name: 'CY-ISUZU-05', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-05.png', images: [] },
+  { id: '070', name: 'CY-ISUZU-06', category: 'isuzu', type: 'Turn signal', cover: 'CY-ISU-06.png', images: [] },
+  { id: '071', name: 'CY-ISUZU-07', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-07.png', images: [] },
+  { id: '072', name: 'CY-ISUZU-08', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-08.png', images: [] },
+  { id: '073', name: 'CY-ISUZU-09', category: 'isuzu', type: 'Fog lamp', cover: 'CY-ISU-09.jpg', images: [] },
+  { id: '074', name: 'CY-ISUZU-10', category: 'isuzu', type: 'Fog lamp', cover: 'CY-ISU-10.jpg', images: [] },
+  { id: '075', name: 'CY-ISUZU-11', category: 'isuzu', type: 'Fog lamp', cover: 'CY-ISU-11.jpg', images: [] },
+  /* hino */
+  { id: '076', name: 'CY-HINO-01', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-01.png', images: [] },
+  { id: '077', name: 'CY-HINO-02', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-02.png', images: [] },
+  { id: '078', name: 'CY-HINO-03', category: 'hino', type: 'Turn signal', cover: 'CY-HIN-03.png', images: [] },
+  { id: '079', name: 'CY-HINO-04', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-04.png', images: [] },
+  { id: '080', name: 'CY-HINO-05', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-05.png', images: [] },
+  { id: '081', name: 'CY-HINO-06', category: 'hino', type: 'Turn signal', cover: 'CY-HIN-06.png', images: [] },
+  { id: '082', name: 'CY-HINO-07', category: 'hino', type: 'Fog lamp', cover: 'CY-HIN-07.jpg', images: [] },
 ]
