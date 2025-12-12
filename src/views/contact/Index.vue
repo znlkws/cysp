@@ -19,14 +19,14 @@ import LocationIcon from '@/assets/svg/location.svg'
         <div class="space-y-6 text-sm leading-relaxed text-slate-400">
 
           <p class="font-medium text-slate-200">
-            Danyang Senlang Auto Parts Co., Ltd.
+            Danyang SenLang Auto Lighting Co., Ltd.
           </p>
 
           <div class="flex items-start gap-3">
             <LocationIcon class="w-5 h-5 mt-0.5 icon-muted" />
             <p>
               <span class="font-medium text-slate-300">Address:</span><br />
-              Jiezhong Village Industrial Park,<br />
+              No. 10 Fengshou Road,<br />
               Jiepai Town, Danyang City,<br />
               Jiangsu Province, China
             </p>
