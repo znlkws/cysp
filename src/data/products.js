@@ -321,11 +321,11 @@ export const products = [
   { id: '074', name: 'CY-ISUZU-10', category: 'isuzu', type: 'Fog lamp', cover: 'CY-ISU-10.jpg', images: [] },
   { id: '075', name: 'CY-ISUZU-11', category: 'isuzu', type: 'Fog lamp', cover: 'CY-ISU-11.jpg', images: [] },
   /* hino */
-  { id: '076', name: 'CY-HINO-01', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-01.png', images: [] },
-  { id: '077', name: 'CY-HINO-02', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-02.png', images: [] },
-  { id: '078', name: 'CY-HINO-03', category: 'hino', type: 'Turn signal', cover: 'CY-HIN-03.png', images: [] },
-  { id: '079', name: 'CY-HINO-04', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-04.png', images: [] },
-  { id: '080', name: 'CY-HINO-05', category: 'hino', type: 'Headlamp', cover: 'CY-HIN-05.png', images: [] },
-  { id: '081', name: 'CY-HINO-06', category: 'hino', type: 'Turn signal', cover: 'CY-HIN-06.png', images: [] },
-  { id: '082', name: 'CY-HINO-07', category: 'hino', type: 'Fog lamp', cover: 'CY-HIN-07.jpg', images: [] },
+  { id: '076', name: 'CY-HINO-01', category: 'hino', type: 'Headlamp', cover: 'CY-HINO-01.png', images: [] },
+  { id: '077', name: 'CY-HINO-02', category: 'hino', type: 'Headlamp', cover: 'CY-HINO-02.png', images: [] },
+  { id: '078', name: 'CY-HINO-03', category: 'hino', type: 'Turn signal', cover: 'CY-HINO-03.png', images: [] },
+  { id: '079', name: 'CY-HINO-04', category: 'hino', type: 'Headlamp', cover: 'CY-HINO-04.png', images: [] },
+  { id: '080', name: 'CY-HINO-05', category: 'hino', type: 'Headlamp', cover: 'CY-HINO-05.png', images: [] },
+  { id: '081', name: 'CY-HINO-06', category: 'hino', type: 'Turn signal', cover: 'CY-HINO-06.png', images: [] },
+  { id: '082', name: 'CY-HINO-07', category: 'hino', type: 'Fog lamp', cover: 'CY-HINO-07.jpg', images: [] },
 ]
