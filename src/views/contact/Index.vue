@@ -50,10 +50,10 @@ import LocationIcon from '@/assets/svg/location.svg'
             <p>
               <span class="font-medium text-slate-300">Email:</span>
               <a
-                href="mailto:1545249100@qq.com"
+                href="mailto:lili@dysenlang.com"
                 class="text-sky-400 hover:underline ml-1"
               >
-                1545249100@qq.com
+                lili@dysenlang.com
               </a>
             </p>
           </div>
