@@ -49,7 +49,7 @@ export const products = [
   { id: '043', name: 'CY-VOLVO-10', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-10.png', images: [] },
   { id: '044', name: 'CY-VOLVO-11', category: 'volvo', type: 'Turn signal', cover: 'CY-VLO-11.png', images: [] },
   { id: '045', name: 'CY-VOLVO-12', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-12.png', images: [] },
-  { id: '046', name: 'CY-VOLVO-13', category: 'volvo', type: 'Turn signal', cover: 'CY-VLO-13.png', images: [] },
+  { id: '046', name: 'CY-VOLVO-13', category: 'volvo', type: 'Trim panel', cover: 'CY-VLO-13.png', images: [] },
   { id: '047', name: 'CY-VOLVO-14', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-14.png', images: [] },
   { id: '048', name: 'CY-VOLVO-15', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.jpg', images: [] },
   /* benz */
@@ -61,11 +61,13 @@ export const products = [
   /* scania */
   { id: '054', name: 'CY-SCANIA-01', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-01.jpg', images: [] },
   { id: '055', name: 'CY-SCANIA-02', category: 'scania', type: 'Turn signal', cover: 'CY-SCA-02.jpg', images: [] },
-  { id: '056', name: 'CY-SCANIA-03', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-03.jpg', images: [] },
-  { id: '057', name: 'CY-SCANIA-04', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-04.jpg', images: [] },
-  { id: '058', name: 'CY-SCANIA-05', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-05.jpg', images: [] },
-  { id: '059', name: 'CY-SCANIA-06', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-06.jpg', images: [], LED: false },
-  { id: '060', name: 'CY-SCANIA-07', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-07.jpg', images: [] },
+  { id: '083', name: 'CY-SCANIA-03', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-08.png', images: [] },
+  { id: '056', name: 'CY-SCANIA-04', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-03.jpg', images: [] },
+  { id: '084', name: 'CY-SCANIA-05', category: 'scania', type: 'Auxiliary high beam', cover: 'CY-SCA-09.png', images: [] },
+  { id: '057', name: 'CY-SCANIA-06', category: 'scania', type: 'Auxiliary high beam', cover: 'CY-SCA-04.jpg', images: [] },
+  { id: '058', name: 'CY-SCANIA-07', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-05.jpg', images: [] },
+  { id: '059', name: 'CY-SCANIA-08', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-06.jpg', images: [], LED: false },
+  { id: '060', name: 'CY-SCANIA-09', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-07.jpg', images: [] },
   /* kamaz */
   { id: '061', name: 'CY-KAMAZ-01', category: 'kamaz', type: 'Headlamp', cover: 'CY-KAMAZ-01.jpg', images: [] },
   { id: '062', name: 'CY-KAMAZ-02', category: 'kamaz', type: 'Headlamp', cover: 'CY-KAMAZ-02.jpg', images: [] },

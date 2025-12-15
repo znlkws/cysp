@@ -18,7 +18,7 @@ const slides = [
   imgUrl('banner01.png'),
   imgUrl('banner02.png'),
   imgUrl('banner03.png'),
-  imgUrl('banner04.png')
+  imgUrl('banner05.png')
 ]
 
 const autoplay = {
