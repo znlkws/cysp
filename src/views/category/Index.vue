@@ -183,11 +183,25 @@ const open = (p) => {
 
       <div class="p-6 space-y-6">
         <img
+          :src="imgUrl(currentProduct?.images[0])"
+          class="
+            block
+            mx-auto
+            w-full
+            max-w-none
+            h-auto
+            object-cover
+            rounded-xl
+          "
+          v-if="currentProduct?.images[0]"
+        />
+        <img
           :src="imgUrl(currentProduct.cover)"
           class="w-full max-h-[65vh]
              object-contain
              rounded-xl
              bg-slate-100"
+          v-else
         />
 
         <p class="text-sm text-slate-600 leading-relaxed">
