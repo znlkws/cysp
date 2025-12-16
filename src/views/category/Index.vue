@@ -72,13 +72,37 @@ watch(
           <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-4">
             <!-- 空状态（当没有产品时显示） -->
             <div
-              v-if="list.length === 0"
+              v-if="list.length === 0 && current !== 'other'"
               class="flex items-center justify-center min-h-[320px] w-full rounded-xl border border-dashed border-slate-300 bg-white/60 text-slate-400"
             >
               <div class="text-center">
                 <div class="text-sm font-medium tracking-wide">No products in this category</div>
                 <div class="text-xs mt-1">Please select another category</div>
               </div>
+            </div>
+
+            <!-- ===== Other 分类专属入口 ===== -->
+            <div
+              v-if="current === 'other'"
+              class="mb-8 flex justify-center"
+            >
+              <a
+                :href="imgUrl('cy2024.pdf')"
+                target="_blank"
+                class="group inline-flex items-center gap-3
+                  px-8 py-4 rounded-2xl
+                  bg-gradient-to-r from-blue-600 to-blue-500
+                  text-white font-medium tracking-wide
+                  shadow-lg shadow-blue-500/30
+                  transition-all duration-300
+                  hover:translate-y-[-1px]
+                  hover:shadow-xl hover:shadow-blue-500/40"
+              >
+                <span>View Full Product Catalog (PDF)</span>
+                <span class="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </div>
 
             <!-- 有数据时使用 TransitionGroup 渲染 Grid -->
@@ -113,7 +137,10 @@ watch(
                       <h3 class="font-semibold text-[15px] transition-colors group-hover:text-blue-600">
                         {{ p.name }}
                       </h3>
-                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" v-show="p.LED !== false">
+                      <span
+                        class="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        v-show="p.LED !== false"
+                      >
                         LED
                       </span>
                     </div>
