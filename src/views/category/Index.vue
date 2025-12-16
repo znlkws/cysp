@@ -4,6 +4,8 @@ import { categories } from '@/data/categories'
 import { products } from '@/data/products'
 import { imgUrl } from '@/utils/index'
 import CategoryList from './CategoryList.vue'
+import Detail from './ProductPreviewModal.vue'
+
 
 const current = ref(categories[0].id)
 
@@ -26,6 +28,13 @@ watch(
   { immediate: true }
 )
 
+const showModal = ref(false)
+const currentProduct = ref(null)
+
+const open = (p) => {
+  currentProduct.value = p
+  showModal.value = true
+}
 </script>
 
 <template>
@@ -119,6 +128,7 @@ watch(
                 <!-- 正常产品卡（实际渲染） -->
                 <div
                   v-if="!p.__placeholder"
+                  @click="open(p)"
                   class="group w-full bg-white rounded-3xl overflow-hidden border border-slate-200 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:border-blue-300"
                 >
                   <!-- 图片 -->
@@ -166,6 +176,27 @@ watch(
         <!-- end 主体 -->
       </div>
     </div>
+    <Detail v-model="showModal">
+      <template #title>
+        {{ currentProduct?.name }}
+      </template>
+
+      <div class="p-6 space-y-6">
+        <img
+          :src="imgUrl(currentProduct.cover)"
+          class="w-full max-h-[65vh]
+             object-contain
+             rounded-xl
+             bg-slate-100"
+        />
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Heavy-duty truck headlamp modification solution.
+          Designed for professional aftermarket use.
+        </p>
+      </div>
+    </Detail>
+
   </div>
 </template>
 
