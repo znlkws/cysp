@@ -105,7 +105,7 @@ const open = (p) => {
                   shadow-lg shadow-blue-500/30
                   transition-all duration-300
                   hover:translate-y-[-1px]
-                  hover:shadow-xl hover:shadow-blue-500/40"
+                  hover:shadow-xl hover:shadow-blue-500/40 mt-60"
               >
                 <span>View Full Product Catalog (PDF)</span>
                 <span class="transition-transform duration-300 group-hover:translate-x-1">
