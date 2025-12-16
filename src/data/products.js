@@ -36,6 +36,8 @@ export const products = [
   { id: '033', name: 'CY-DAF-03', category: 'daf', type: 'Fog lamp', cover: 'CY-DAF-03.jpg', images: [], },
   /* lq */
   { id: '022', name: 'CY-LQ-01', category: 'lq', type: 'Headlamp', cover: 'CY-LQ-01.JPG', images: [], },
+  { id: '093', name: 'CY-LQ-02', category: 'lq', type: 'Headlamp', cover: 'CY-LQ-02.png', images: [], },
+  { id: '094', name: 'CY-LQ-03', category: 'lq', type: 'Headlamp', cover: 'CY-LQ-03.png', images: [], },
   /* volvo */
   { id: '034', name: 'CY-VOLVO-01', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-01.png', images: [] },
   { id: '035', name: 'CY-VOLVO-02', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-02.jpg', images: [] },
@@ -95,4 +97,28 @@ export const products = [
   { id: '080', name: 'CY-HINO-05', category: 'hino', type: 'Headlamp', cover: 'CY-HINO-05.png', images: [] },
   { id: '081', name: 'CY-HINO-06', category: 'hino', type: 'Turn signal', cover: 'CY-HINO-06.png', images: [] },
   { id: '082', name: 'CY-HINO-07', category: 'hino', type: 'Fog lamp', cover: 'CY-HINO-07.jpg', images: [] },
+  /* sq */
+  { id: '085', name: 'CY-SQ-01', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-01.png', images: [] },
+  { id: '086', name: 'CY-SQ-02', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-02.png', images: [] },
+  { id: '087', name: 'CY-SQ-03', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-03.png', images: [] },
+  { id: '088', name: 'CY-SQ-04', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-04.png', images: [] },
+  { id: '089', name: 'CY-SQ-05', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-05.png', images: [] },
+  { id: '090', name: 'CY-SQ-06', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-06.png', images: [] },
+  { id: '091', name: 'CY-SQ-07', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-07.png', images: [] },
+  { id: '092', name: 'CY-SQ-08', category: 'sq', type: 'Headlamp', cover: 'CY-SQ-08.png', images: [] },
+  /* faw */
+  { id: '095', name: 'CY-JF-01', category: 'faw', type: 'Headlamp', cover: 'CY-JF-01.png', images: [] },
+  { id: '096', name: 'CY-JF-02', category: 'faw', type: 'Headlamp', cover: 'CY-JF-02.png', images: [] },
+  { id: '097', name: 'CY-JF-03', category: 'faw', type: 'Headlamp', cover: 'CY-JF-03.jpg', images: [] },
+  { id: '098', name: 'CY-JF-04', category: 'faw', type: 'Headlamp', cover: 'CY-JF-04.jpg', images: [] },
+  { id: '099', name: 'CY-JF-05', category: 'faw', type: 'Headlamp', cover: 'CY-JF-05.png', images: [] },
+  /* auman */
+  { id: '101', name: 'CY-OM-01', category: 'auman', type: 'Headlamp', cover: 'CY-OM-01.png', images: [] },
+  { id: '102', name: 'CY-OM-02', category: 'auman', type: 'Headlamp', cover: 'CY-OM-02.png', images: [] },
+  { id: '103', name: 'CY-OM-03', category: 'auman', type: 'Headlamp', cover: 'CY-OM-03.png', images: [] },
+  /* hy */
+  { id: '105', name: 'CY-HY-01', category: 'hy', type: 'Headlamp', cover: 'CY-HY-01.png', images: [] },
+  /* df */
+  { id: '107', name: 'CY-DF-01', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.png', images: [] },
+  { id: '108', name: 'CY-DF-02', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.jpg', images: [] },
 ]

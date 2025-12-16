@@ -11,4 +11,10 @@ export const categories = [
     { id: 'iveco', name: 'IVECO', },
     { id: 'renualt', name: 'RENAULT', },
     { id: 'lq', name: 'LQ', },
+    { id: 'sq', name: 'SHACMAN', },
+    { id: 'faw', name: 'FAW', },
+    { id: 'auman', name: 'Auman', },
+    { id: 'hy', name: 'HY' },
+    { id: 'df', name: 'DF' },
+    { id: 'other', name: 'OTHER', },
 ]
