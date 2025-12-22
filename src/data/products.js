@@ -57,7 +57,7 @@ export const products = [
   { id: '046', name: 'CY-VOLVO-16', category: 'volvo', type: 'Trim panel', cover: 'CY-VLO-13.png', images: [] },
   /* benz */
   { id: '049', name: 'CY-BENZ-01', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-01.jpg', images: [] },
-  { id: '050', name: 'CY-BENZ-02', category: 'benz', type: 'Fog lamp', cover: 'CY-BENZ-02.png', images: [] },
+  { id: '050', name: 'CY-BENZ-02', category: 'benz', type: 'Fog lamp', cover: 'CY-BENZ-02.png', images: ['CY-BENZ-02d.png'] },
   { id: '051', name: 'CY-BENZ-03', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-03.jpg', images: [] },
   { id: '052', name: 'CY-BENZ-04', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-04.jpg', images: [] },
   { id: '053', name: 'CY-BENZ-05', category: 'benz', type: 'Headlamp', cover: 'CY-BENZ-05.png', images: [] },
