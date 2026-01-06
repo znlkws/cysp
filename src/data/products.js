@@ -120,9 +120,9 @@ export const products = [
   { id: '103', name: 'CY-OM-03', category: 'auman', type: 'Headlamp', cover: 'CY-OM-03.png', images: ['CY-OM-02d.png'] },
   { id: '110', name: 'CY-OM-04', category: 'auman', type: 'Headlamp', cover: 'CY-OM-04.png', images: ['CY-OM-04d.png'] },
   /* hy */
-  { id: '105', name: 'CY-HY-01', category: 'hy', type: 'Headlamp', cover: 'CY-HY-01.png', images: [] },
+  { id: '105', name: 'CY-HY-01', category: 'hy', type: 'Headlamp', cover: 'CY-HY-01.png', images: ['CY-HY-01d.png'] },
   /* df */
-  { id: '107', name: 'CY-DF-01', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.png', images: [] },
-  { id: '108', name: 'CY-DF-02', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.jpg', images: [] },
+  { id: '107', name: 'CY-DF-01', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.png', images: ['CY-DF-02d.png'] },
+  { id: '108', name: 'CY-DF-02', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.jpg', images: ['CY-DF-02d.png'] },
   // 112
 ]
