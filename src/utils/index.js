@@ -1,4 +1,4 @@
-const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
+const IMG_BASE_URL = location.href.indexOf('cn.') > -1 ? import.meta.env.VITE_IMG_BASE_URL_CN : import.meta.env.VITE_IMG_BASE_URL
 
 export function imgUrl(path) {
   if (!path) return ''
