@@ -133,6 +133,7 @@ const MobileLink = defineComponent({
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
         aria-label="Toggle menu"
+        v-show="!isOnlyCategory"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
