@@ -1,6 +1,18 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const routes = [
+const isOnlyCategory = location.href.indexOf('.cn') > -1
+
+const routes = isOnlyCategory ? [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import(/* webpackChunkName: "main" */ '../views/category/Index.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
+  }
+] : [
   {
     path: '/',
     name: 'home',

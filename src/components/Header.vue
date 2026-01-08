@@ -82,6 +82,8 @@ const NavLink = defineComponent({
   },
 })
 
+const isOnlyCategory = location.href.indexOf('.cn') > -1
+
 /* ✅ 移动端导航组件（保持你原样） */
 const MobileLink = defineComponent({
   props: {
@@ -119,7 +121,7 @@ const MobileLink = defineComponent({
       </RouterLink>
 
       <!-- Desktop -->
-      <nav class="hidden md:flex gap-10">
+      <nav class="hidden md:flex gap-10" v-show="!isOnlyCategory">
         <NavLink to="/" label="Home"><HomeIcon /></NavLink>
         <NavLink to="/category" label="Category"><CategoryIcon /></NavLink>
         <NavLink to="/about" label="About"><InfoIcon /></NavLink>
