@@ -82,7 +82,7 @@ const NavLink = defineComponent({
   },
 })
 
-const isOnlyCategory = location.href.indexOf('.cn') > -1
+const isOnlyCategory = location.href.indexOf('cn.') > -1
 
 /* ✅ 移动端导航组件（保持你原样） */
 const MobileLink = defineComponent({

@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const isOnlyCategory = location.href.indexOf('.cn') > -1
+const isOnlyCategory = location.href.indexOf('cn.') > -1
 
 const routes = isOnlyCategory ? [
   {
