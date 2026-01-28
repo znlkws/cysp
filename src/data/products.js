@@ -42,11 +42,11 @@ export const products = [
   { id: '034', name: 'CY-VOLVO-01', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-01.png', images: ['CY-VLO-01d.png'] },
   { id: '035', name: 'CY-VOLVO-02', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-02.png', images: ['CY-VLO-02d.png'] },
   { id: '036', name: 'CY-VOLVO-03', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-03.png', images: [] },
-  { id: '037', name: 'CY-VOLVO-04', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-04.jpg', images: [] },
+  { id: '037', name: 'CY-VOLVO-04', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-04.png', images: [] },
   { id: '038', name: 'CY-VOLVO-05', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-05.png', images: [] },
   { id: '109', name: 'CY-VOLVO-06', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-16.png', images: [] },
   { id: '039', name: 'CY-VOLVO-07', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-06.png', images: [] },
-  { id: '040', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-07.png', images: [] },
+  { id: '040', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-17.png', images: [] },
   { id: '048', name: 'CY-VOLVO-09', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.jpg', images: [] },
   { id: '047', name: 'CY-VOLVO-10', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-14.png', images: [] },
   { id: '041', name: 'CY-VOLVO-11', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-08.png', images: [] },
@@ -77,7 +77,7 @@ export const products = [
   /* renualt */
   { id: '063', name: 'CY-RENAULT-01', category: 'renualt', type: 'Headlamp', cover: 'CY-REN-01.jpg', images: [] },
   /* iveco */
-  { id: '064', name: 'CY-IVECO-01', category: 'iveco', type: 'Headlamp', cover: 'CY-IVC-01.jpg', images: [] },
+  { id: '064', name: 'CY-IVECO-01', category: 'iveco', type: 'Headlamp', cover: 'CY-IVC-01.png', images: [] },
   /* isuzu */
   { id: '065', name: 'CY-ISUZU-01', category: 'isuzu', type: 'Headlamp', cover: 'CY-ISU-01.png', images: [] },
   { id: '066', name: 'CY-ISUZU-02', category: 'isuzu', type: 'Turn signal', cover: 'CY-ISU-02.png', images: [] },
@@ -114,6 +114,7 @@ export const products = [
   { id: '098', name: 'CY-JF-04', category: 'faw', type: 'Headlamp', cover: 'CY-JF-04.jpg', images: ['CY-JF-03d.png'] },
   { id: '099', name: 'CY-JF-05', category: 'faw', type: 'Headlamp', cover: 'CY-JF-05.png', images: ['CY-JF-05d.png'] },
   { id: '111', name: 'CY-JF-06', category: 'faw', type: 'Headlamp', cover: 'CY-JF-06.png', images: ['CY-JF-06d.png'] },
+  { id: '112', name: 'CY-JF-07', category: 'faw', type: 'Headlamp', cover: 'CY-JF-07.png', images: ['CY-JF-06d.png'] },
   /* auman */
   { id: '101', name: 'CY-OM-01', category: 'auman', type: 'Headlamp', cover: 'CY-OM-01.png', images: ['CY-OM-01d.png'] },
   { id: '102', name: 'CY-OM-02', category: 'auman', type: 'Headlamp', cover: 'CY-OM-02.png', images: ['CY-OM-02d.png'] },
