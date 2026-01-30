@@ -3,7 +3,10 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   src: String,
-  alt: String,
+  alg: {
+    type: String,
+    default: '驰誉尚品',
+  },
   ratio: {
     type: String,
     default: '4/3',

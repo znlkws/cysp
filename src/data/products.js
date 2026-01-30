@@ -17,6 +17,7 @@ export const products = [
   { id: '019', name: 'CY-HW-15', category: 'howo', type: 'Fog lamp', cover: 'CY-MAN-04.png', images: [], },
   { id: '020', name: 'CY-HW-16', category: 'howo', type: 'Fog lamp', cover: 'CY-MAN-05.png', images: [], },
   { id: '025', name: 'CY-HW-17', category: 'howo', type: 'Fog lamp', cover: 'CY-MAN-06.png', images: [], },
+  { id: '113', name: 'CY-HW-18', category: 'howo', type: 'Fog lamp', cover: 'CY-HW-12.png', images: ['CY-HW-12d.png'], },
   /* man */
   { id: '011', name: 'CY-MAN-01', category: 'man', type: 'Headlamp', cover: 'CY-MAN-01.JPG', images: [], },
   { id: '012', name: 'CY-MAN-02', category: 'man', type: 'Headlamp', cover: 'CY-MAN-02.png', images: ['CY-MAN-02d.png'], },
@@ -125,5 +126,5 @@ export const products = [
   /* df */
   { id: '107', name: 'CY-DF-01', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.png', images: ['CY-DF-02d.png'] },
   { id: '108', name: 'CY-DF-02', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.jpg', images: ['CY-DF-02d.png'] },
-  // 112
+  // 114
 ]
