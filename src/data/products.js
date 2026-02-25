@@ -47,7 +47,7 @@ export const products = [
   { id: '038', name: 'CY-VOLVO-05', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-05.png', images: [] },
   { id: '109', name: 'CY-VOLVO-06', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-16.png', images: [] },
   { id: '039', name: 'CY-VOLVO-07', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-06.png', images: [] },
-  { id: '040', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-17.png', images: [] },
+  { id: '040', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-17.png', images: ['CY-VLO-17d.png'] },
   { id: '048', name: 'CY-VOLVO-09', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.jpg', images: [] },
   { id: '047', name: 'CY-VOLVO-10', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-14.png', images: [] },
   { id: '041', name: 'CY-VOLVO-11', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-08.png', images: [] },
