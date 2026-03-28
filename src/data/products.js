@@ -48,7 +48,7 @@ export const products = [
   { id: '109', name: 'CY-VOLVO-06', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-16.png', images: [] },
   { id: '039', name: 'CY-VOLVO-07', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-06.png', images: [] },
   { id: '040', name: 'CY-VOLVO-08', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-17.png', images: ['CY-VLO-17d.png'] },
-  { id: '048', name: 'CY-VOLVO-09', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.jpg', images: [] },
+  { id: '048', name: 'CY-VOLVO-09', category: 'volvo', type: 'Fog lamp', cover: 'CY-VLO-15.png', images: ['CY-VLO-15d.png'] },
   { id: '047', name: 'CY-VOLVO-10', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-14.png', images: [] },
   { id: '041', name: 'CY-VOLVO-11', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-08.png', images: [] },
   { id: '042', name: 'CY-VOLVO-12', category: 'volvo', type: 'Headlamp', cover: 'CY-VLO-09.png', images: [] },
@@ -121,10 +121,11 @@ export const products = [
   { id: '102', name: 'CY-OM-02', category: 'auman', type: 'Headlamp', cover: 'CY-OM-02.png', images: ['CY-OM-02d.png'] },
   { id: '103', name: 'CY-OM-03', category: 'auman', type: 'Headlamp', cover: 'CY-OM-03.png', images: ['CY-OM-02d.png'] },
   { id: '110', name: 'CY-OM-04', category: 'auman', type: 'Headlamp', cover: 'CY-OM-04.png', images: ['CY-OM-04d.png'] },
+  { id: '114', name: 'CY-OM-05', category: 'auman', type: 'Headlamp', cover: 'CY-OM-05.png', images: ['CY-OM-05d.png'] },
   /* hy */
   { id: '105', name: 'CY-HY-01', category: 'hy', type: 'Headlamp', cover: 'CY-HY-01.png', images: ['CY-HY-01d.png'] },
   /* df */
   { id: '107', name: 'CY-DF-01', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.png', images: ['CY-DF-02d.png'] },
   { id: '108', name: 'CY-DF-02', category: 'df', type: 'Headlamp', cover: 'CY-DF-02.jpg', images: ['CY-DF-02d.png'] },
-  // 114
+  // 115
 ]
