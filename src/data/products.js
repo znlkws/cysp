@@ -69,7 +69,7 @@ export const products = [
   { id: '056', name: 'CY-SCANIA-04', category: 'scania', type: 'Fog lamp', cover: 'CY-SCA-03.jpg', images: ['CY-SCA-08d.png'] },
   { id: '084', name: 'CY-SCANIA-05', category: 'scania', type: 'Auxiliary high beam', cover: 'CY-SCA-09.png', images: ['CY-SCA-09d.png'] },
   { id: '057', name: 'CY-SCANIA-06', category: 'scania', type: 'Auxiliary high beam', cover: 'CY-SCA-04.jpg', images: ['CY-SCA-09d.png'] },
-  { id: '058', name: 'CY-SCANIA-07', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-05.png', images: [] },
+  { id: '058', name: 'CY-SCANIA-07', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-05.png', images: ['CY-SCA-05d.png'] },
   { id: '059', name: 'CY-SCANIA-08', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-06.jpg', images: [], LED: false },
   { id: '060', name: 'CY-SCANIA-09', category: 'scania', type: 'Headlamp', cover: 'CY-SCA-07.jpg', images: [] },
   /* kamaz */
