@@ -2,7 +2,7 @@ export const products = [
   /* howo */
   { id: '001', name: 'CY-HW-01', category: 'howo', type: 'Headlamp', cover: 'CY-HW-01.JPG', images: [], },
   { id: '002', name: 'CY-HW-02', category: 'howo', type: 'Headlamp', cover: 'CY-HW-02.JPG', images: [], },
-  { id: '115', name: 'CY-HW-18', category: 'howo', type: 'Fog lamp', cover: 'CY-HW-13.png', images: ['CY-HW-13d.png'], },
+  { id: '115', name: 'CY-HW-19', category: 'howo', type: 'Headlamp', cover: 'CY-HW-13.png', images: ['CY-HW-13d.png'], },
   { id: '003', name: 'CY-HW-03', category: 'howo', type: 'Headlamp', cover: 'CY-HW-03.JPG', images: [], },
   { id: '004', name: 'CY-HW-04', category: 'howo', type: 'Headlamp', cover: 'CY-HW-04.JPG', images: [], },
   { id: '005', name: 'CY-HW-05', category: 'howo', type: 'Fog lamp', cover: 'CY-HW-05.JPG', images: [], },
