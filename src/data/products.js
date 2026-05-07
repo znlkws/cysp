@@ -30,7 +30,7 @@ export const products = [
   { id: '027', name: 'CY-MAN-08', category: 'man', type: 'Headlamp', cover: 'CY-MAN-08.png', images: [], LED: false },
   { id: '028', name: 'CY-MAN-09', category: 'man', type: 'Fog lamp', cover: 'CY-MAN-09.png', images: [], LED: false },
   { id: '029', name: 'CY-MAN-10', category: 'man', type: 'Fog lamp', cover: 'CY-MAN-10.png', images: [] },
-  { id: '030', name: 'CY-MAN-11', category: 'man', type: 'Headlamp', cover: 'CY-MAN-11.jpg', images: [] },
+  { id: '030', name: 'CY-MAN-11', category: 'man', type: 'Headlamp', cover: 'CY-MAN-11.png', images: ['CY-MAN-11d.png'] },
   { id: '031', name: 'CY-MAN-12', category: 'man', type: 'Fog lamp', cover: 'CY-MAN-12.jpg', images: [] },
   /* Daf */
   { id: '021', name: 'CY-DAF-01', category: 'daf', type: 'Headlamp', cover: 'CY-DAF-01.png', images: ['CY-DAF-01d.png'], },
